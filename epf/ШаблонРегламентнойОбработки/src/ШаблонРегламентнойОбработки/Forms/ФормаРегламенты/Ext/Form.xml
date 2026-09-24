@@ -70,9 +70,59 @@
 							<ChildItems>
 								<CheckBoxField name="ВФоне" id="3">
 									<DataPath>Объект.ВФоне</DataPath>
-									<CheckBoxType>Switcher</CheckBoxType>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>В фоне</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Выполнять команду фоновым заданием: форма остаётся доступной, на ней видны статус и прогресс. Доступно, когда обработка открыта из справочника дополнительных обработок.</v8:content>
+										</v8:item>
+									</ToolTip>
+									<ToolTipRepresentation>Button</ToolTipRepresentation>
+									<CheckBoxType>Tumbler</CheckBoxType>
+									<EditFormat>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>БЛ=Нет; БИ=Да</v8:content>
+										</v8:item>
+									</EditFormat>
 									<ContextMenu name="ВФонеКонтекстноеМеню" id="4"/>
 									<ExtendedTooltip name="ВФонеРасширеннаяПодсказка" id="5"/>
+									<Events>
+										<Event name="OnChange">ВФонеПриИзменении</Event>
+									</Events>
+								</CheckBoxField>
+								<CheckBoxField name="ОтображатьПрогресс" id="52">
+									<DataPath>ОтображатьПрогресс</DataPath>
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Отображать прогресс</v8:content>
+										</v8:item>
+									</Title>
+									<ToolTip>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Показывать на форме процент и текущий шаг фонового задания. Статус выполнения виден и без этого.</v8:content>
+										</v8:item>
+									</ToolTip>
+									<ToolTipRepresentation>Button</ToolTipRepresentation>
+									<CheckBoxType>Tumbler</CheckBoxType>
+									<EditFormat>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>БЛ=Нет; БИ=Да</v8:content>
+										</v8:item>
+									</EditFormat>
+									<ContextMenu name="ОтображатьПрогрессКонтекстноеМеню" id="53"/>
+									<ExtendedTooltip name="ОтображатьПрогрессРасширеннаяПодсказка" id="54"/>
+									<Events>
+										<Event name="OnChange">ОтображатьПрогрессПриИзменении</Event>
+									</Events>
 								</CheckBoxField>
 								<UsualGroup name="Основные" id="46">
 									<Title>
@@ -172,6 +222,65 @@
 					<ShowTitle>false</ShowTitle>
 					<ExtendedTooltip name="ГруппаПользовательскаяИнформацияРасширеннаяПодсказка" id="24"/>
 					<ChildItems>
+						<UsualGroup name="ГруппаСостояние" id="55">
+							<Visible>false</Visible>
+							<Title>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Состояние</v8:content>
+								</v8:item>
+							</Title>
+							<Group>Vertical</Group>
+							<Behavior>Usual</Behavior>
+							<Representation>NormalSeparation</Representation>
+							<ShowTitle>false</ShowTitle>
+							<ExtendedTooltip name="ГруппаСостояниеРасширеннаяПодсказка" id="56"/>
+							<ChildItems>
+								<UsualGroup name="ГруппаСостояниеСтрока" id="57">
+									<Title>
+										<v8:item>
+											<v8:lang>ru</v8:lang>
+											<v8:content>Состояние строка</v8:content>
+										</v8:item>
+									</Title>
+									<Group>AlwaysHorizontal</Group>
+									<Representation>None</Representation>
+									<ShowTitle>false</ShowTitle>
+									<ExtendedTooltip name="ГруппаСостояниеСтрокаРасширеннаяПодсказка" id="58"/>
+									<ChildItems>
+										<LabelField name="СостояниеЗадания" id="59">
+											<DataPath>СостояниеЗадания</DataPath>
+											<TitleLocation>None</TitleLocation>
+											<AutoMaxWidth>false</AutoMaxWidth>
+											<HorizontalStretch>true</HorizontalStretch>
+											<Font ref="style:NormalTextFont" bold="true" kind="StyleItem"/>
+											<ContextMenu name="СостояниеЗаданияКонтекстноеМеню" id="60"/>
+											<ExtendedTooltip name="СостояниеЗаданияРасширеннаяПодсказка" id="61"/>
+										</LabelField>
+										<Button name="ОтменитьЗадание" id="62">
+											<Type>UsualButton</Type>
+											<CommandName>Form.Command.ОтменитьЗадание</CommandName>
+											<ExtendedTooltip name="ОтменитьЗаданиеРасширеннаяПодсказка" id="63"/>
+										</Button>
+									</ChildItems>
+								</UsualGroup>
+								<ProgressBarField name="ИндикаторПрогресса" id="64">
+									<DataPath>ПроцентВыполнения</DataPath>
+									<TitleLocation>None</TitleLocation>
+									<ShowPercent>true</ShowPercent>
+									<ContextMenu name="ИндикаторПрогрессаКонтекстноеМеню" id="65"/>
+									<ExtendedTooltip name="ИндикаторПрогрессаРасширеннаяПодсказка" id="66"/>
+								</ProgressBarField>
+								<LabelField name="ТекстПрогресса" id="67">
+									<DataPath>ТекстПрогресса</DataPath>
+									<TitleLocation>None</TitleLocation>
+									<AutoMaxWidth>false</AutoMaxWidth>
+									<HorizontalStretch>true</HorizontalStretch>
+									<ContextMenu name="ТекстПрогрессаКонтекстноеМеню" id="68"/>
+									<ExtendedTooltip name="ТекстПрогрессаРасширеннаяПодсказка" id="69"/>
+								</LabelField>
+							</ChildItems>
+						</UsualGroup>
 						<Button name="СохранитьЛогирование" id="30">
 							<Type>UsualButton</Type>
 							<CommandName>Form.Command.СохранитьЛогирование</CommandName>
@@ -246,6 +355,105 @@
 				</v8:StringQualifiers>
 			</Type>
 		</Attribute>
+		<Attribute name="ОтображатьПрогресс" id="6">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отображать прогресс</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:boolean</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ИдентификаторЗадания" id="7">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Идентификатор задания</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>v8:UUID</v8:Type>
+			</Type>
+		</Attribute>
+		<Attribute name="ВыполняемаяКоманда" id="8">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Выполняемая команда</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>150</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="СостояниеЗадания" id="9">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Состояние задания</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ПроцентВыполнения" id="10">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Процент выполнения</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>3</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="ТекстПрогресса" id="11">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Текст прогресса</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>0</v8:Length>
+					<v8:AllowedLength>Variable</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</Type>
+		</Attribute>
+		<Attribute name="НачалоВыполнения" id="12">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Начало выполнения</v8:content>
+				</v8:item>
+			</Title>
+			<Type>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>15</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</Type>
+		</Attribute>
 	</Attributes>
 	<Commands>
 		<Command name="СохранитьЛогирование" id="3">
@@ -281,6 +489,26 @@
 					<v8:content>Закрыть</v8:content>
 				</v8:item>
 			</ToolTip>
+		</Command>
+		<Command name="ОтменитьЗадание" id="4">
+			<Title>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отменить</v8:content>
+				</v8:item>
+			</Title>
+			<ToolTip>
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отменить выполняемое фоновое задание</v8:content>
+				</v8:item>
+			</ToolTip>
+			<Picture>
+				<xr:Ref>StdPicture.Stop</xr:Ref>
+				<xr:LoadTransparent>true</xr:LoadTransparent>
+			</Picture>
+			<Action>ОтменитьЗадание</Action>
+			<Representation>TextPicture</Representation>
 		</Command>
 	</Commands>
 </Form>

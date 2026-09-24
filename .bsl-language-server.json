@@ -1,0 +1,31 @@
+{
+  "$schema": "https://1c-syntax.github.io/bsl-language-server/configuration/schema.json",
+  "language": "ru",
+  "diagnostics": {
+    "parameters": {
+      "LineLength": {
+        "maxLineLength": 220
+      },
+      "MethodSize": {
+        "maxMethodSize": 400
+      },
+      "CyclomaticComplexity": {
+        "complexityThreshold": 30
+      },
+      "CognitiveComplexity": {
+        "complexityThreshold": 30
+      },
+      "NestedTernaryOperator": false,
+      "MissingSpace": false,
+      "SemicolonPresence": false,
+      "OneStatementPerLine": false,
+      "CanonicalSpellingKeywords": false,
+      "MagicNumber": false,
+      "Typo": false,
+      "MissingVariablesDescription": false,
+      "IncorrectLineBreak": false,
+      "UnknownMember": false
+    }
+  },
+  "configurationRoot": "src/bsp"
+}
