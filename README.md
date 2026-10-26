@@ -11,7 +11,8 @@
 ```
 epf/ШаблонРегламентнойОбработки/src/   XML-исходники (формат 2.20, платформа 8.3.27)
 scripts/epf-vm.sh, epf-vm.ps1         сборка и разбор .epf через ibcmd в Windows-VM
-scripts/bsl-check.sh                   статический анализ BSL Language Server с метаданными БСП
+scripts/bsl-check.sh                   статический анализ bsl-analyzer с метаданными БСП (bsl-analyzer.toml)
+scripts/bsl-check-ls.sh                второй проход: BSL Language Server
 scripts/form-check.py                  сверка модулей форм с их XML
 ```
 
@@ -84,7 +85,7 @@ ibcmd config import --db-path=<база с БСП> --user=<пользовате�
 
 Платформа 8.3.27.2130, демо-конфигурация БСП **3.1.11.466**:
 
-- BSL Language Server с метаданными БСП — ошибок нет
+- bsl-analyzer и BSL Language Server с метаданными БСП — ошибок нет
 - модули форм сходятся с XML форм
 - круговой тест сборка → разбор — исходники совпадают побайтово
 - все вызываемые методы БСП лежат в `#Область ПрограммныйИнтерфейс` (стабильный API)

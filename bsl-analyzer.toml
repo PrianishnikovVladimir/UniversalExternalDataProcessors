@@ -1,0 +1,22 @@
+# bsl-analyzer (itrous/bsl-analyzer): основная проверка исходников, scripts/bsl-check.sh.
+# Конфигурация - выгрузка демо-БСП 3.1.11 (src/bsp, в .gitignore); обработки (epf/<Имя>/src) передает скрипт ключом --external.
+[source]
+root = "src/bsp"
+externals = []
+
+[diagnostics.parameters]
+# выключено по умолчанию; ловит вызов несуществующей своей процедуры, ОбъединитьПути, необъявленную переменную
+UnresolvedName = true
+# стиль проекта (как в .bsl-language-server.json)
+LineLength = { maxLineLength = 220 }
+MethodSize = { maxMethodSize = 400 }
+CyclomaticComplexity = { complexityThreshold = 30 }
+CognitiveComplexity = { complexityThreshold = 30 }
+NestedTernaryOperator = false
+MissingSpace = false
+SemicolonPresence = false
+OneStatementPerLine = false
+CanonicalSpellingKeywords = false
+MagicNumber = false
+MissingVariablesDescription = false
+IncorrectLineBreak = false
